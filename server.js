@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 const FILE = "tasks.json";
 
-// Ovo omogućava Expressu da posluži HTML i JS fajlove
+
 app.use(express.static("public"));
 
 app.use(express.json());
@@ -21,7 +21,7 @@ const saveTasks = (tasks) => {
   fs.writeFileSync(FILE, JSON.stringify(tasks, null, 2));
 };
 
-// API rute
+
 app.get("/tasks", (req, res) => {
   const tasks = loadTasks();
   res.json(tasks);
